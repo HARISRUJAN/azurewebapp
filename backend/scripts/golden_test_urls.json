@@ -1,0 +1,84 @@
+{
+  "test_urls": [
+    {
+      "name": "Simple HTML Page",
+      "url": "https://example.com",
+      "type": "html",
+      "description": "Basic HTML page for smoke testing",
+      "expected_results": {
+        "status_code": 200,
+        "has_markdown": true,
+        "min_markdown_length": 50,
+        "has_title": true,
+        "has_metadata": true
+      }
+    },
+    {
+      "name": "IndiaAI Governance Guidelines PDF",
+      "url": "https://indiaai.s3.ap-south-1.amazonaws.com/docs/guidelines-governance.pdf",
+      "type": "pdf",
+      "description": "Official IndiaAI governance guidelines document",
+      "expected_results": {
+        "status_code": 200,
+        "has_content": true,
+        "min_content_length": 1000,
+        "has_metadata": true,
+        "content_type": "application/pdf"
+      },
+      "search_phrases": [
+        "governance",
+        "artificial intelligence",
+        "guidelines",
+        "India"
+      ]
+    },
+    {
+      "name": "Wikipedia AI Governance",
+      "url": "https://en.wikipedia.org/wiki/AI_governance",
+      "type": "html",
+      "description": "Wikipedia article on AI governance",
+      "expected_results": {
+        "status_code": 200,
+        "has_markdown": true,
+        "min_markdown_length": 500,
+        "has_title": true,
+        "title_contains": ["AI", "governance"]
+      },
+      "search_phrases": [
+        "artificial intelligence",
+        "governance",
+        "regulation"
+      ]
+    },
+    {
+      "name": "EU AI Act Summary",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "type": "html",
+      "description": "EU AI Act regulatory framework page",
+      "expected_results": {
+        "status_code": 200,
+        "has_markdown": true,
+        "min_markdown_length": 500,
+        "has_title": true
+      },
+      "search_phrases": [
+        "EU",
+        "artificial intelligence",
+        "regulation",
+        "act"
+      ]
+    }
+  ],
+  "test_config": {
+    "timeout_seconds": 60,
+    "retry_attempts": 2,
+    "verify_rag_ingestion": true,
+    "verify_qdrant_storage": true
+  },
+  "notes": [
+    "These URLs are used for golden testing to verify the entire crawl → ingest → RAG pipeline",
+    "Each URL should be tested periodically to ensure system health",
+    "If a URL becomes unavailable, update the expected_results accordingly"
+  ]
+}
+

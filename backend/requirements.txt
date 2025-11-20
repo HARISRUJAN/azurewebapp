@@ -1,0 +1,30 @@
+fastapi>=0.109.0
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+pydantic>=2.9.0
+pydantic-settings>=2.5.0
+sqlalchemy>=2.0.36
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt>=4.0.0
+python-dotenv==1.0.0
+numpy>=2.0.0
+langchain>=1.0.0
+langchain-openai>=1.0.0  # Optional, kept for fallback
+langchain-community>=0.3.0
+groq>=0.9.0
+openai>=1.109.1  # Optional, kept for fallback only
+sentence-transformers>=2.2.0
+einops>=0.8.0  # Required for nomic-ai/nomic-embed-text-v1 model
+pypdf>=3.0.0
+qdrant-client>=1.7.1
+tiktoken>=0.8.0
+httpx>=0.27.2,<1.0.0  # Updated to satisfy crawl4ai requirement (>=0.27.2) while maintaining compatibility with groq, openai, and qdrant-client
+alembic==1.12.1
+crawl4ai>=0.7.6
+APScheduler>=3.10.0
+slowapi>=0.1.9
+spacy>=3.7.0
+# Note: After installing spacy, download the English model:
+# python -m spacy download en_core_web_md
+
